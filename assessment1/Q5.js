@@ -11,7 +11,7 @@ function getHouse() {
   return getAddress;
 }
 
-let getAddress = getHouse()
+var getAddress = getHouse()
 getAddress();
 
 //  Example on object
