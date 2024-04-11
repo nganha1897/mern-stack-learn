@@ -1,7 +1,3 @@
-// Javascript: client side scripting language, interpreted, oojs - object oriented javascript, functional, dynamic typing, case sensitive, auto casting
-
-// Javascript runtime console
-
 // Data types: 6 data types in Javascript
 // Primitive types:
 // String, Number, Boolean, Undefined, Null
@@ -56,3 +52,4 @@ var symbol1 = Symbol("New value of my choice")
 
 console.log(symbol1)
 console.log("Data type", typeof symbol1)
+
