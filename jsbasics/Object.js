@@ -44,6 +44,9 @@ console.log(SoftwareEngg.GetEmployeeInfo())
 
 console.log(SoftwareEngg.__proto__) //returns Employee object
 
+// __proto__: get prototype of parent
+// .prototype: change property of current object
+
 //4. Empty Object
 var EmptyObj = {} //new Object({})
 //console.log(EmptyObj.__proto__)
@@ -62,9 +65,9 @@ var Address = {name : "Aileen", add1 : "Wall Streets", productName : "New produc
 
 //var Delivery = {User , Address}
 
-var Delivery = Object.assign(User, Address)//takes the left most ones updated values in case of same properties
+var Delivery = Object.assign(User, Address)//takes the latest ones updated values in case of same properties
 
-//console.log(Delivery)
+console.log(Delivery)
 
 
 //create one object with name person, and inherit it to Student and create two new properties and one new method

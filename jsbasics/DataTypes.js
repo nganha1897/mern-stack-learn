@@ -1,9 +1,9 @@
 // Data types: 6 data types in Javascript
 // Primitive types:
-// String, Number, Boolean, Undefined, Null
+// 1.String, 2.Number, 3.Boolean, 4.Undefined, 5.Null
 
 // Non-primitive types (pointers to object - reference):
-// Object
+// 6.Object
 
 // var: keyword used in core-js to declare variables, function
 
