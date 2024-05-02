@@ -26,12 +26,14 @@ let AnimalSoundES6 = {cat, dog, bird, lion }
 //console.log(AnimalSound)
 console.log(AnimalSoundES6)
 
-console.log(`Animal Sound refers with 1 ${AnimalSoundES6}`) //{}.toSting() => [object Object]
+// console.log(`Animal Sound refers with 1 ${AnimalSoundES6}`) //{}.toString() => [object Object]
 
-console.log(`Animal Sound refers with 2 ${JSON.stringify(AnimalSoundES6)}`) //converts the object in to value of strings
+// console.log(`Animal Sound refers with 2 ${JSON.stringify(AnimalSoundES6)}`) //converts the object in to value of strings
 
-console.log("Animal Sound refers with 3 " + AnimalSoundES6) //{}.toSting() => [object Object]
+// console.log("Animal Sound refers with 3 " + AnimalSoundES6) //{}.toString() => [object Object]
 
-console.log("Animal Sound refers with 4 " + JSON.stringify(AnimalSoundES6))
+// console.log("Animal Sound refers with 4 " + JSON.stringify(AnimalSoundES6))
 
-console.log("Animal Sound refers with 5 ", AnimalSoundES6) // putting , makes log to convert object into string
+// console.log("Animal Sound refers with 5 ", AnimalSoundES6) // putting , makes log to convert object into string
+
+module.exports = AnimalSoundES6

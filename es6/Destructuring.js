@@ -2,7 +2,7 @@
 
 //1. Array Destructuring
 
-//a. reading values without mulitple variables and indexing
+//a. reading values without multiple variables and indexing
 
 // let [one, two, three, four, no_val = 0] = [11,22,33,44]
 

@@ -46,6 +46,7 @@ var User = {
 
       var that = this; //that - copies dynamic context
       setTimeout(function () {
+              console.log("2: ", this)
               console.log(`SetTimeOut User Info ${that.Name} and ${that.Address}`);// that is copy of this in parent function
       }, 2000) 
 
@@ -59,3 +60,4 @@ var User = {
 }
 
 User.GetUserInfo()
+

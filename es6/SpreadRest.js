@@ -5,7 +5,7 @@ let arrayOFCities = ["Rome", "New York", "New Delhi", "London"]
 //  console.log(arrayOFCities[0]);
 //  console.log(arrayOFCities[1]);
 
-//  console.log(...arrayOFCities)
+console.log(...arrayOFCities)
 
 //spread operator is used to combine two objects and preserve the immutability of each object
 let User = { name : "Anna", age : 25 }
@@ -17,8 +17,8 @@ let Delivery = { ...User, ...Address} //preserving the immutability //if we do c
 
 Address.phone = 89898989;
 
-// console.log(Delivery)
-// console.log(Address)
+console.log(Delivery)
+console.log(Address)
 
 //rest - parameter : if we have many parameters which can be clubbed so rest can be used as parameter
 // rest parameter will be last parameter

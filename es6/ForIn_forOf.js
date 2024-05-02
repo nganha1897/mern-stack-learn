@@ -8,7 +8,6 @@
 //for in loop  
 let person = {fname:"John", lname:"Doe", age:25, address : {}}; 
 
-
 for (const key in person) {
     //if (Object.hasOwnProperty.call(person, key)) { //this is a check to confirm that key is present else set  the context to current key
         const element = person[key];
@@ -19,17 +18,17 @@ for (const key in person) {
 console.log("Other Example") 
 
 let arr = [3,5,7]; //{0:3, 1:5, 2:7, newKey : "Sierra"}
-//arr[3] = "Mayuri"
+arr[3] = "Mayuri"
 
 arr.newKey = "Sierra"
 
-// console.log(arr)
+console.log(arr)
 
-// for (const key in arr) {
-//         console.log(key)
-//         const element = arr[key]; 
-//         console.log(element)
-// }
+for (const key in arr) {
+        console.log(key)
+        const element = arr[key]; 
+        console.log(element)
+}
 
 
 
@@ -40,7 +39,7 @@ let cars = ['BMW', 'Volvo', 'Mini'];
 cars[5] = "Toyota"
 
 
-//cars.newCar = "Tesla" //Array with key not based on index for of loop will not support for that value
+cars.newCar = "Tesla" //Array with key not based on index for of loop will not support for that value
 
 console.log(cars);
 

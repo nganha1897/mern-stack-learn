@@ -1,8 +1,8 @@
 //Default parameters are used to pass and assign in a function where we may or may not be able to pass the values
 
-function Sum(a = 0, b = 0) {
-  // console.log(a)
-  // console.log(b)
+function Sum(a=0, b=0) {
+  console.log(a)
+  console.log(b)
 
   return a + b
 }

@@ -1,4 +1,4 @@
-//Aprat from for,of,in,froeach, while... ES6 introduced 4 new Iterators, which helps to read, modify and re-create the
+//Apart from for,of,in,foreach, while... ES6 introduced 4 new Iterators, which helps to read, modify and re-create the
 //Array or Array of objects
 //1.Filter, 2.Map, 3.Some and 4.Reduce
 // When we do new changes it should not impact the core object, preserve the immutability
@@ -42,18 +42,17 @@ let savedByBatMan = personsList.some(person => person.savedby=="Batman")
 
 //console.log(savedByBatMan)
 
-//set => a data structure used to created arrays of unique values
+//set => a data structure used to create arrays of unique values
 
 //4. Give me the number of persons saved by each super hero uniquely
 
-let personsSavedUniquely = personsList.reduce((prevVal, currVal, index, array)=>{
+let personsSavedUniquely = personsList.reduce((prevVal, currVal, index)=>{
               console.log(prevVal)
               console.log(currVal)
               console.log(index)
-              //console.log(array)
               prevVal[currVal.savedby] = prevVal[currVal.savedby] ? prevVal[currVal.savedby] + 1 : 1
               return prevVal 
-      }, []) //new Set()
+      }, [])
 
 console.log(personsSavedUniquely)
 
