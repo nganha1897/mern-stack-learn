@@ -9,5 +9,5 @@ const port = 9000
 
 const studentRouter = require("./studentRoute")
 
-app.use("/", studentRouter)
+app.use("/student", studentRouter)
 app.listen(port)

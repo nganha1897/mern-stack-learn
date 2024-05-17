@@ -1,0 +1,46 @@
+/* css class */
+
+.topdiv{
+  border: 2px red solid;
+}
+
+/* tag/element based css */
+h1 {
+  color: blue;
+  font-weight: 400;
+  font-style: italic;
+}
+
+h2 {
+  color: rgb(255, 0, 191);
+  font-weight: 300;
+  font-style: normal;
+}
+
+h3 {
+  color: rgb(255, 85, 0);
+  font-weight: 200;
+  
+}
+
+b {
+  color: rgb(42, 140, 165);
+  font-weight: 200;
+}
+
+/* id based css */
+
+label {
+  color: rgb(19, 189, 211);
+  font-weight: 600;
+  font-style: oblique;
+}
+
+button {
+  padding: 5px;
+  text-align: center;
+  background-color: rgb(234, 180, 223);
+  border: 1px solid red;
+  border-radius: 5%;
+  margin: 10px;
+}
