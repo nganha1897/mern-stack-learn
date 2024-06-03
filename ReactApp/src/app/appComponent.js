@@ -7,6 +7,11 @@ import Home from "./common/HomeComponent";
 import Header from "./common/HeaderComponent";
 import About from "./common/AboutComponent";
 import NotFound from "./common/NotFoundComponent";
+import ProductHook from "./application/product/ProductHookComponent";;
+import UserComponent from "./application/user/UserContainer";
+import UserHook from "./application/user/UserHookComponent";
+import CartHook from "./application/cart/CartHookComponent";
+import StudentHook from "./application/student/StudentHookComponent";
 
 export default class ApplicationComponent extends Component {
   
@@ -41,15 +46,27 @@ export default class ApplicationComponent extends Component {
       return (
         <Router>
           <div className = "topdiv">
-          <b>username = {this.state.name}</b>
-          <Header username={this.state.name}/>
+          {/* <b>username = {this.state.name}</b> */}
+          <Header userName={this.state.name}/>
           <Routes>
-            <Route path="/" element={<Home parentName1={this.state.name} 
+            <Route path="/" element={<Home parentName={this.state.name} 
               updateNameInParent={this.updateName}/>}/>
-            <Route path="home" element={<Home parentName1={this.state.name}
+            <Route path="home" element={<Home parentName={this.state.name}
               updateNameInParent={this.updateName}/>}/>
+
+            {/* <Route path="user" element={<UserComponent/>}/> */}
+            <Route path="user" element={<UserHook/>}/>
+
+            <Route path="student" element={<StudentHook/>}/>
+
+            <Route path="product" element={<ProductHook />}/>
+
+            <Route path="cart" element={<CartHook />}/>
+
             <Route path="about" element={<About/>}/>
+
             <Route path="about/:id" element={<About />}/>
+
             <Route path="*" element={<NotFound/>}/>   
           </Routes>
           <Footer/>

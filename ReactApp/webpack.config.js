@@ -36,7 +36,10 @@ config = {
             exclude: /nodeModules/,
             type: 'asset/resource',
         }
-    ]
+    ],
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   },
   plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })]  //localhost:9090 - loads this html
 }

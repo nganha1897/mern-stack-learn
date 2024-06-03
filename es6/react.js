@@ -34,4 +34,8 @@
 
   //destruction life cycle
 
-  
+//redux
+//store, reducer, action, dispatcher
+
+//react-redux 
+//api's to read store - <mapStateToProps, mapDispatchToProps> hooks <useSelector, useDispatch> 
