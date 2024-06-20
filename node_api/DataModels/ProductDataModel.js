@@ -8,7 +8,8 @@ let productSchema = new schemaObj({
   productDescription: String,
   price: Number,
   rating: Number,
-  category: String
+  category: String,
+  image: String
 },
 {
   versionKey: false

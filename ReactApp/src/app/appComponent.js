@@ -7,11 +7,14 @@ import Home from "./common/HomeComponent";
 import Header from "./common/HeaderComponent";
 import About from "./common/AboutComponent";
 import NotFound from "./common/NotFoundComponent";
-import ProductHook from "./application/product/ProductHookComponent";;
+import ProductHook from "./application/product/ProductListingComponent";;
 import UserComponent from "./application/user/UserContainer";
 import UserHook from "./application/user/UserHookComponent";
-import CartHook from "./application/cart/CartHookComponent";
+import CartHook from "./application/cart/CartComponent";
 import StudentHook from "./application/student/StudentHookComponent";
+import ProductForm from "./application/product/ProductFormComponent";
+import Checkout from "./application/checkout/CheckoutComponent";
+import RecentOrder from "./application/recentOrders/RecentOrdersComponent";
 
 export default class ApplicationComponent extends Component {
   
@@ -22,7 +25,7 @@ export default class ApplicationComponent extends Component {
 
     //define the state and initialize the state
     this.state = {
-      name : "Ha Tran Googler"
+      name : "User"
     }
   }
   
@@ -57,11 +60,17 @@ export default class ApplicationComponent extends Component {
             {/* <Route path="user" element={<UserComponent/>}/> */}
             <Route path="user" element={<UserHook/>}/>
 
-            <Route path="student" element={<StudentHook/>}/>
+            {/* <Route path="student" element={<StudentHook/>}/> */}
 
             <Route path="product" element={<ProductHook />}/>
 
+            <Route path="addProduct" element={<ProductForm />}/>
+
             <Route path="cart" element={<CartHook />}/>
+
+            <Route path="checkout" element={<Checkout />}/>
+
+            <Route path="recentOrders" element={<RecentOrder />}/>
 
             <Route path="about" element={<About/>}/>
 

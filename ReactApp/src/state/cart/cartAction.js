@@ -14,8 +14,7 @@ export const SaveCartToDB = (newCart) => {
       newCart
     ).then((collection) => {
       let cart = collection.data
-      console.log(cart)
-      dispatch(AddCartToStore(cart))
+      console.log(cart);
     }).catch((err) => {
       console.log("error while creating cart", err)
     })
@@ -26,5 +25,28 @@ export const AddProductToCart = (product) => {
   return {
     type : actionTypes.ADD_TO_CART,
     payload : product
+  }
+}
+
+export const UpdateItem = (id, qty) => {
+  return {
+    type : actionTypes.UPDATE_ITEM,
+    payload : {
+      id,
+      qty
+    }
+  }
+}
+
+export const removeItem = (id) => {
+  return {
+    type : actionTypes.REMOVE_ITEM,
+    payload : id
+  }
+}
+
+export const ClearCart = () => {
+  return {
+    type : actionTypes.CLEAR_CART
   }
 }

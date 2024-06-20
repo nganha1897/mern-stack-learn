@@ -1,28 +1,26 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   GetAllProductsFromDB,
   SaveProductToDB,
 } from "../../../state/product/productAction";
-import { AddProductToCart } from "../../../state/cart/cartAction";
+import ProductHook from "./ProductListingComponent";
 
-let ProductHook = (props) => {
-  let products = useSelector((store) => store.productReducer.products);
-
+let ProductForm = (props) => {
   let productName = useRef(null);
   let productDescription = useRef(null);
   let price = useRef(0);
   let rating = useRef(0);
   let category = useRef(null);
+  let image = useRef(null);
 
-  let numProducts = useRef([]);
-
+  const [showProductComponent, setShowProductComponent] = useState(false);
   let dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(GetAllProductsFromDB());
   }, [dispatch]);
-
+  
   let onTextChange = (evt) => {
     let target = evt.target;
     let classList = target.classList;
@@ -36,14 +34,11 @@ let ProductHook = (props) => {
       price.current = value;
     } else if (classList.contains("productRating")) {
       rating.current = value;
-    } else {
+    } else if (classList.contains("productImage")) {
+      image.current.value = value;
+    }else {
       category.current.value = value;
     }
-    evt.preventDefault();
-  };
-
-  let onNumProductChange = (index, evt) => {
-    numProducts.current[index] = evt.target.value;
     evt.preventDefault();
   };
 
@@ -54,24 +49,18 @@ let ProductHook = (props) => {
       price: +price.current,
       rating: +rating.current,
       category: category.current.value,
+      image: image.current.value
     };
 
     dispatch(SaveProductToDB(newProduct));
+    setShowProductComponent(true);
     evt.preventDefault();
-  };
-
-  let addToCart = (product, index) => {
-    if (numProducts.current[index] == undefined)
-      dispatch(AddProductToCart(product));
-    else {
-      for (let i = 1; i <= numProducts.current[index]; i++) {
-        dispatch(AddProductToCart(product));
-      }
-    }
   };
 
   return (
     <>
+    {showProductComponent && <ProductHook />}
+    {!showProductComponent && (
       <div className="row">
         <div className="col-4">
           <h1>Product Details</h1>
@@ -134,6 +123,17 @@ let ProductHook = (props) => {
               />
             </div>
             <br></br>
+            <div className="form">
+              <b>Product Image</b>
+              <input
+                type="text"
+                className="form-control productImage"
+                ref={image}
+                placeholder="Enter Product Image Path"
+                onChange={onTextChange}
+              />
+            </div>
+            <br></br>
             <input
               type="submit"
               className={"btn btn-primary"}
@@ -142,50 +142,10 @@ let ProductHook = (props) => {
             />
           </section>
         </div>
-        <div className="col-8">
-          <h1>All Products</h1>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Rating</th>
-                <th>Category</th>
-                <th>Add To Cart</th>
-              </tr>
-            </thead>
-            <tbody>
-              {products.map((product, index) => (
-                <tr key={product.id}>
-                  <td>{product.productName}</td>
-                  <td>{product.productDescription}</td>
-                  <td>{product.price}</td>
-                  <td>{product.rating}</td>
-                  <td>{product.category}</td>
-                  <td>
-                    <input
-                      type="number"
-                      className={"col-3 numProducts"}
-                      ref={numProducts[index]}
-                      defaultValue={1}
-                      onChange={(evt) => onNumProductChange(index, evt)}
-                    />
-                    <input
-                      type="submit"
-                      className={"btn btn-primary"}
-                      value="Add"
-                      onClick={() => addToCart(product, index)}
-                    />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
       </div>
+      )}
     </>
   );
 };
 
-export default ProductHook;
+export default ProductForm;

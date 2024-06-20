@@ -11,6 +11,8 @@ const userRouter = require("./Routers/userRoute")
 const studentRouter = require("./Routers/studentRoute")
 const productRouter = require("./Routers/productRoute")
 const cartRouter = require("./Routers/cartRoute")
+const recentOrderRouter = require('./Routers/recentOrderRoute')
+const reviewRouter = require('./Routers/reviewRoute')
 
 //we can have one main and multiple other express apps at a place
 const adminApp = express(); // a new express app to handle requests mounted with admin in path
@@ -18,6 +20,8 @@ const userApp = express();
 const studentApp = express();
 const productApp = express();
 const cartApp = express();
+const recentOrderApp = express();
+const reviewApp = express();
 
 app.use(cors()) //enabling cross origin resource sharing at root level
 
@@ -44,6 +48,12 @@ productApp.use(productRouter)
 
 app.use("/cart", cartApp)
 cartApp.use(cartRouter)
+
+app.use("/order", recentOrderApp)
+recentOrderApp.use(recentOrderRouter)
+
+app.use("/review", reviewApp)
+reviewApp.use(reviewRouter)
 
 app.use("/",defaultRouter)
 

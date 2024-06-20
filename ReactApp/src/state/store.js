@@ -13,13 +13,19 @@ import userReducer from "./user/userReducer";
 import studentReducer from "./student/studentReducer";
 import productReducer from "./product/productReducer";  //another reducer for product component
 import cartReducer from "./cart/cartReducer";
+import couponReducer from "./coupon/couponReducer";
+import orderReducer from "./order/orderReducer";
+import reviewReducer from "./review/reviewReducer";
 
 //we can add multiple reducers and combine them together to have 1 root reducer and add it to store
 let rootReducer = combineReducers({
     userReducer,  //userReducer : userReducer
     studentReducer,
     productReducer,
-    cartReducer
+    cartReducer,
+    couponReducer,
+    orderReducer,
+    reviewReducer
 })
 
 export default configureStore(

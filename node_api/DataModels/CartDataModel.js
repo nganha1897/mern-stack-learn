@@ -8,9 +8,11 @@ let cartSchema = new schemaObj({
     {
       _id: false,
       product: { type: schemaObj.Types.ObjectId, ref: "product"},
-      count: Number
+      qty: Number
     },
-  ]
+  ],
+  totalPrice: Number,
+  userId: { type: schemaObj.Types.ObjectId, ref: "user"},
 },
 {
   versionKey: false
