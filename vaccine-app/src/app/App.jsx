@@ -22,11 +22,8 @@ import Payment from "./appointment/Payment";
 const defaultTheme = createTheme({
   typography: {
     h4: {
-      // fontSize: '2rem',
       fontWeight: "bold",
       lineHeight: 1.5,
-      //fontSize: pxToRem(20),
-      /* ...responsiveFontSizes({ sm: 20, md: 24, lg: 24 }); */
     },
   },
 });
