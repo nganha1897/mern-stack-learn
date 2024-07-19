@@ -2,6 +2,8 @@
 
 const express = require('express') //express class constructor
 const app = express() //invoking the class to create express app server
+const jwt = require('jsonwebtoken');
+const bodyParser = require('body-parser');
 
 const port = 9000//
 const cors = require("cors")
@@ -23,6 +25,7 @@ const cartApp = express();
 const recentOrderApp = express();
 const reviewApp = express();
 
+app.use(bodyParser.json());
 app.use(cors()) //enabling cross origin resource sharing at root level
 
 //setting up the middleware static to handle all the static files we need to serve to client

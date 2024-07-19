@@ -2,6 +2,7 @@ import * as actionTypes from "../actionTypes";
 
 let initialState = {
   orders: [],
+  cancel: 0,
 };
 
 let orderReducer = (state = initialState, action) => {
@@ -19,6 +20,7 @@ let orderReducer = (state = initialState, action) => {
       return {
         ...state,
         orders: updatedOrders,
+        cancel: action.payload.status == "Cancelled" ? state.cancel+1 : state.cancel
       };
     
     case actionTypes.CLEAR_ORDERS:

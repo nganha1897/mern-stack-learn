@@ -49,7 +49,7 @@ const Header = (props) => {
                 About
               </Nav.Link>
             </Nav>
-            <Form className="d-flex me-auto" style={{ width: "50%" }}>
+            {/* <Form className="d-flex me-auto" style={{ width: "50%" }}>
               <Form.Control
                 type="search"
                 placeholder="Search"
@@ -57,11 +57,11 @@ const Header = (props) => {
                 aria-label="Search"
               />
               <Button variant="outline-primary">Search</Button>
-            </Form>
+            </Form> */}
 
-            {/* {user._id == undefined || user._id == null ? (
+            {user._id == undefined || user._id == null ? (
               <></>
-            ) : ( */}
+            ) : (
             <Nav className="d-flex align-items-center">
               <Nav.Link as={NavLink} to="/recentOrders" className="active-link">
                 Orders
@@ -79,7 +79,7 @@ const Header = (props) => {
               </Nav.Link>
               <Notification></Notification>
             </Nav>
-            {/* )} */}
+            )}
             <Nav className="d-flex align-items-center">
               <Nav.Link
                 as={NavLink}

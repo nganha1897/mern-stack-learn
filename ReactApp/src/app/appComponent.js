@@ -44,6 +44,27 @@ export default class ApplicationComponent extends Component {
     })
 
   }
+  // handleAuthenticatedRequest = async () => {
+  //   const token = sessionStorage.getItem('token');
+  //   if (!token) {
+  //     // Handle case where token is not available
+  //     return;
+  //   }
+  
+  //   try {
+  //     const response = await fetch('http://example.com/api/protected', {
+  //       headers: {
+  //         'Authorization': `Bearer ${token}`,
+  //         'Content-Type': 'application/json'
+  //       }
+  //     });
+  //     const data = await response.json();
+  //     console.log('Authenticated Data:', data);
+  //   } catch (error) {
+  //     console.error('Error fetching protected data:', error);
+  //   }
+  // };
+
   render() {
       //let name = "Tran"
       return (

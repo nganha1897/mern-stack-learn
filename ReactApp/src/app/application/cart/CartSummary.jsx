@@ -13,7 +13,7 @@ let CartSummary = (props) => {
     0
   );
   
-  let total = productTotal + productTotal / 5 + productTotal / 100 * couponDiscount.discount;
+  let total = productTotal + productTotal / 5 - productTotal / 100 * couponDiscount.discount;
 
   return (
     <>

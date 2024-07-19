@@ -20,7 +20,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 let Notification = (props) => {
-  let id = 6;
+   
   const [notifications, setNotifications] = useState([
     {
       id: 1,
@@ -50,51 +50,51 @@ let Notification = (props) => {
     },
   ]);
   const [unreadCount, setUnreadCount] = useState(notifications.length);
+  const [nextId, setNextId] = useState(6);
 
-  let recentOrders = useSelector((store) => store.orderReducer.orders);
-
+  let orderCancel = useSelector((store) => store.orderReducer.cancel);
+  
   const cartItemsCount = useSelector(
     (store) => store.cartReducer.cart.productList.length
   );
 
-  const prevCartRef = useRef();
-  const prevOrderRef = useRef();
+  const [prevCartItemsCount, setPrevCartItemsCount] = useState(cartItemsCount);
+  const [prevOrderCancel, setPrevOrderCancel] = useState(orderCancel);
 
   useEffect(() => {
-    if (
-      prevCartRef.current != undefined &&
-      prevCartRef.current != cartItemsCount
-    ) {
+    if (prevCartItemsCount != cartItemsCount && cartItemsCount != 0) {
       let noti = {
-        id,
-        message: "You have " + cartItemsCount + " in cart!",
+        id: nextId,
+        message: "You have " + cartItemsCount + " items in cart!",
         type: "dynamic",
       };
-      id++;
       let updatedNotifications = [...notifications];
       updatedNotifications.unshift(noti);
       setNotifications(updatedNotifications);
       setUnreadCount(unreadCount + 1);
+      setNextId(nextId + 1);
+      setIconClicked(true);
     }
 
     if (
-      prevOrderRef.current != undefined &&
-      prevOrderRef.current != recentOrders
+      prevOrderCancel < orderCancel
     ) {
       let noti2 = {
-        id,
+        id: nextId,
         message: "Your order has been cancelled!",
         type: "dynamic",
       };
-      id++;
       let updatedNotifications = [...notifications];
       updatedNotifications.unshift(noti2);
       setNotifications(updatedNotifications);
       setUnreadCount(unreadCount + 1);
+      setNextId(nextId + 1);
+      setIconClicked(true);
     }
-    prevCartRef.current = cartItemsCount;
-    prevOrderRef.current = recentOrders;
-  }, [cartItemsCount, recentOrders]);
+    setPrevCartItemsCount(cartItemsCount);
+    setPrevOrderCancel(orderCancel);
+    
+  }, [cartItemsCount, orderCancel]);
 
   const [iconClicked, setIconClicked] = useState(false);
 
@@ -115,7 +115,7 @@ let Notification = (props) => {
         onClick={() => setIconClicked(!iconClicked)}
       />
       {unreadCount > 0 && (
-        <Badge pill bg="danger" className="badge">
+        <Badge pill bg="danger" className="badge2">
           {unreadCount}
         </Badge>
       )}
@@ -125,7 +125,7 @@ let Notification = (props) => {
             <ListGroup.Item
               key={notification.id}
               onClick={() => handleNotificationClick(notification.id)}
-              variant={notification.type == "static" ? "warning" : "primary"}
+              variant={notification.type == "static" ? "light" : "primary"}
             >
               {notification.message}
             </ListGroup.Item>

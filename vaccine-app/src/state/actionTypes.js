@@ -1,0 +1,10 @@
+//constants are returned as action types which will be used in action and reducer files
+
+export const ADD_USER_TO_STORE = "STORE.ADDUSER";
+export const CLEAR_USER = "STORE.CLEARUSER";
+export const ADD_VACCINE_TO_STORE = "STORE.ADDVACCINE";
+export const ADD_ALL_VACCINES = "STORE.ADDALLVACCINES";
+export const ADD_ALL_HOSPITALS = "STORE.ADDALLHOSPITALS";
+export const ADD_ALL_APPOINTMENTS = "STORE.ADDALLAPPOINTMENTS";
+export const ADD_APPOINTMENT_TO_STORE = "STORE.ADDAPPOINTMENT";
+export const UPDATE_APPOINTMENT_STATUS = "STORE.UPDATEAPPOINTMENTSTATUS";

@@ -31,7 +31,7 @@ let CartHook = (props) => {
       })
     );
     navigate('/checkout');
-    alert("Cart successfully saved!");
+    //alert("Cart successfully saved!");
   };
 
   return (

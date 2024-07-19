@@ -112,7 +112,7 @@ let Checkout = () => {
               <Row>
                 <Col>
                   <Button variant="primary" onClick={() => pay()}>
-                    <span>Pay</span>
+                    <span><strong>PAY NOW</strong></span>
                   </Button>
 
                   <Coupon></Coupon>

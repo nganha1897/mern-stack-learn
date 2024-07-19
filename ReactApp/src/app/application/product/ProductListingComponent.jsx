@@ -11,7 +11,7 @@ import {
   faShoppingCart,
 } from "@fortawesome/free-solid-svg-icons";
 import ProductReviewModal from "./ProductReviewModal";
-import {GetAllReviewsFromDB} from "../../../state/review/reviewAction";
+import { GetAllReviewsFromDB } from "../../../state/review/reviewAction";
 
 let ProductHook = (props) => {
   let products = useSelector((store) => store.productReducer.products);
@@ -23,8 +23,6 @@ let ProductHook = (props) => {
   const [showProductFormComponent, setShowProductFormComponent] =
     useState(false);
   const [modalShow, setModalShow] = useState(false);
-
-  const [reviews, setReviews] = useState([]);
 
   let dispatch = useDispatch();
 
@@ -141,46 +139,48 @@ let ProductHook = (props) => {
                   </div>
                 </>
               ))}
-              <Card
-                style={{
-                  width: "15rem",
-                  height: "30rem",
-                  margin: "5px",
-                  borderRadius: "10px",
-                  border: "1px solid #ddd",
-                  boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
-                }}
-              >
-                <Card.Img
-                  variant="top"
-                  src={
-                    "https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg"
-                  }
-                  style={{ height: "50%", objectFit: "cover" }}
-                />
-                <Card.Body
-                  className="text-center bg-light"
+              {User.userName == "admin" && (
+                <Card
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
+                    width: "15rem",
+                    height: "30rem",
+                    margin: "5px",
+                    borderRadius: "10px",
+                    border: "1px solid #ddd",
+                    boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
                   }}
                 >
-                  <Button
-                    variant="bg-light"
-                    className="rounded-circle border"
-                    onClick={() => setShowProductFormComponent(true)}
+                  <Card.Img
+                    variant="top"
+                    src={
+                      "https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg"
+                    }
+                    style={{ height: "50%", objectFit: "cover" }}
+                  />
+                  <Card.Body
+                    className="text-center bg-light"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
                   >
-                    <FontAwesomeIcon
-                      icon={faPlus}
-                      style={{ fontSize: "6em", color: "grey", border: "" }}
-                    />
-                  </Button>
-                </Card.Body>
-              </Card>
+                    <Button
+                      variant="bg-light"
+                      className="rounded-circle border"
+                      onClick={() => setShowProductFormComponent(true)}
+                    >
+                      <FontAwesomeIcon
+                        icon={faPlus}
+                        style={{ fontSize: "6em", color: "grey", border: "" }}
+                      />
+                    </Button>
+                  </Card.Body>
+                </Card>
+              )}
             </div>
 
-            <Pagination
+            {/* <Pagination
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -197,7 +197,7 @@ let ProductHook = (props) => {
               <Pagination.Item>{20}</Pagination.Item>
               <Pagination.Next />
               <Pagination.Last />
-            </Pagination>
+            </Pagination> */}
           </div>
         </div>
       )}
